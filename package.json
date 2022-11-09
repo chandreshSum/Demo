@@ -12,6 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "axios": "^0.27.2",
+    "node-static": "0.7.7",
+    "robotjs": "^0.6.0",
+    "socket.io": "1.2.0"
   }
 }
