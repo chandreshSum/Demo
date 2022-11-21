@@ -10,9 +10,10 @@ const robot = require("robotjs");
 
 var options = {
   // for http:
-  key: fs.readFileSync('apache-selfsigned.key'),
-  cert: fs.readFileSync('apache-selfsigned.crt')
+  key: fs.readFileSync('./signalling/apache-selfsigned.key'),
+  cert: fs.readFileSync('./signalling/apache-selfsigned.crt')
 };
+
 var fileServer = new (nodeStatic.Server)();
 var app = https.createServer( options, function (req, res) {
    fileServer.serve(req, res);
@@ -29,6 +30,7 @@ roomsMap.set('Room4', new Array());
 roomsMap.set('Room5', new Array());
 
 var roomsLookup = new Map();
+
 
 io.sockets.on('connection', function (socket) {
 
