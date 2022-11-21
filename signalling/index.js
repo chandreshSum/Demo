@@ -17,8 +17,8 @@ var options = {
 var fileServer = new (nodeStatic.Server)();
 var app = https.createServer( options, function (req, res) {
    fileServer.serve(req, res);
-
-}).listen(1794, "0.0.0.0");
+   fs.readFile("./index.html", () => {});
+}).listen(1799, "0.0.0.0");
 
 var io = socketIO.listen(app);
 var allClients = [];
