@@ -16,7 +16,7 @@ jobs:
       #        npm install libxtst-dev
       #        npm install libpng++-dev
      - name: Robot Js
-       uses:  npm install robotjs libxtst-dev libpng++-dev
+       run:  npm install robotjs libxtst-dev libpng++-dev
       - name: Install dependencies
         run: npm install
       # - name: Run test
