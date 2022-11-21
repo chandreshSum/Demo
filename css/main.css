@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
+
+.remoteScreen{
+    height: 250px !important;
+    width: 400px !important;
+    display: flex;
+ }
+ svg {
+  width: 40px;
+  top: 0;
+  left: 0;
+  position: fixed;
+}

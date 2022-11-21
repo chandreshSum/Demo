@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="">	
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon//favicon-32x32.png">	
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">	
+    <link rel="manifest" href="./images/favicon/site.webmanifest">	
+    <link rel="mask-icon" href="./images/favicon/safari-pinned-tab.svg" color="#5bbad5">	
+    <meta name="msapplication-TileColor" content="#da532c">	
+    <meta name="theme-color" content="#ffffff">	
+
+
+    <title>Remote POS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+    
+
+  </head>
+  <body>
+    <svg viewBox="11.8 9 16 22" class="mouse">
+      <path d="M20,21l4.5,8l-3.4,2l-4.6-8.1L12,29V9l16,12H20z"></path>
+  </svg>  
+    <div class="wrapper">
+  
+      <div class="logo">
+            <img src="images/remotepos-logo.png" alt="" />
+        </div>
+        <div class="remotepos">
+          
+            <div class="row g-0 g-xl-5">
+                <div class="col-lg-12 col-xl-6 d-flex align-items-center">
+                    <div class="remotepos_sub">
+                        <h1>Realtime Communication with WebRTC</h1>
+                        <p>WebRTC uses RTCPeerConnection to communicate streaming data between browsers, but also needs a mechanism to coordinate communication and to send control messages, a process known as signaling. Signaling methods and protocols are not specified by WebRTC.</p>
+                        <div class="remotepos_block">
+                            <h2 id="element" for="rooms_list">Available Rooms : </h2>
+                            <!-- <div class="remotepos_input"> -->
+                                <select id="rooms_list">
+                                  <option selected value> -- select an option -- </option>
+                                </select>
+                            <!-- </div> -->
+                            <div>
+                              <button id="leaveRoom" disabled onclick="leaveRoom()">Leave Room</button>
+                            </div>
+                            <div class="remotepos_button">
+                                <div class="joinbutton">
+                                    <button type="submit" id="joinnow" onclick="init()" disabled>Call Now</button>
+                                    <button type="submit" id="sharenow" onclick="shareScreen()" disabled>Share Now</button>
+                                    <div id="timer">
+                                        <span id="hours">00:</span>
+                                        <span id="mins">00:</span>
+                                        <span id="seconds">00</span> 
+                                    </div>
+                                </div>
+                                <div class="pause-close-btn">
+                                    <button type="submit" id="pause"><i class="las la-pause"></i></button>
+                                    <button type="submit" id="callend"><i class="las la-phone"></i></button>
+                                    <!-- <button type="submit" id="reset" class="d-none"><i class="las la-redo-alt"></i></button> -->
+                                </div>
+                            </div>
+                            <div id="videos"  class="remoteScreen">
+                              <!-- <video id="localVideo" controls  autoplay="true" muted="true"></video>-->
+                              <video id="remoteScreen"  autoplay="true"  onclick="showCoords(event)" onkeyup="getText(event)" ></video> 
+                              <audio id="localVideo" controls="true" autoplay="true" muted="muted" style="display:none;"></audio>
+                              <audio id="remoteVideo" controls="true" autoplay="true" style="display:none;"></audio>
+                            </div>
+                            <!-- <div>
+                              <label for="RoomName">Room Name</label>      
+                              <input id="RoomName" value="DefaultRoom">
+                              <button id="connect" onclick="init()" disabled>Create or Join</button>
+                            </div> -->
+                            <div>
+                              <button id="disconnect" disabled onclick="disconnectCall()">Disconnect</button>
+                            </div>
+                            <div>
+                                <label id="status" style="font-size:12px"></label>
+                            </div>
+                            <div  class="roomclear">
+                              <div>
+                                <button id="clearRoom1" onclick="clearRoom(this)">Clear Room1</button>
+                              </div>
+                              <div>
+                                <button id="clearRoom2" onclick="clearRoom(this)">Clear Room2</button>
+                              </div>
+                              <div>
+                                <button id="clearRoom3" onclick="clearRoom(this)">Clear Room3</button>
+                              </div>
+                              <div>
+                                <button id="clearRoom4" onclick="clearRoom(this)">Clear Room4</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xl-6">
+                    <img src="images/remotpos-webrtc.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="node_modules/socket.io-client/socket.io.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/robot-js@2.0.0/lib/robot.min.js"></script> -->
+    <script src="js/lib/adapter.js"></script>
+    <script src="js/screenControls.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/screenShare.js"></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/127738/perlin.js'></script>
+    <!-- <script data-main="js/main" src="js/require.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/robot-js@2.0.0/lib/robot.min.js"></script> -->
+    
+  </body>
+</html>
+
+
