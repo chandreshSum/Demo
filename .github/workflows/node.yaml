@@ -13,11 +13,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "16.x"
-      # - name: Install Robot
-      #   run: npm install nodejs npm
       #        npm install libxtst-dev
       #        npm install libpng++-dev
-      #        npm install robotjs
+     - name: Robot Js
+       uses:  npm install robotjs libxtst-dev libpng++-dev
       - name: Install dependencies
         run: npm install
       # - name: Run test
