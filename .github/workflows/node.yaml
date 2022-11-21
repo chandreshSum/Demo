@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: "14.x"
       - name: Install Robot
-        run: npm install libxtst-dev robotjs
+        run: npm install robotjs
       - name: Install dependencies
         run: npm install
       - name: Run test
