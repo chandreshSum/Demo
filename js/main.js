@@ -63,7 +63,7 @@ let mobileCheck = screen.orientation.type === "portrait-primary";
 // };
 
 //alert(window.navigator.connection.type)
-let socketServerURL = "https://192.168.1.50:1799";
+let socketServerURL = "https://192.168.1.50:1700";
 console.log(
   "mobile check ",
   mobileCheck,
@@ -71,7 +71,7 @@ console.log(
   screen.orientation
 );
 if (!mobileCheck) {
-  socketServerURL = "https://192.168.1.50:1799";
+  socketServerURL = "https://192.168.1.50:1700";
 }
 //staging
 //var socket = io.connect("https://remoteposdemo.socialcup.co:1794");

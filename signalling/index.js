@@ -6,7 +6,7 @@ var https = require('https'); // use require('http') for http
 var socketIO = require('socket.io');
 var fs = require("fs");
 const axios = require('axios');
-// const robot = require("robotjs");
+const robot = require("robotjs");
 
 var options = {
   // for http:
@@ -18,7 +18,7 @@ var fileServer = new (nodeStatic.Server)();
 var app = https.createServer( options, function (req, res) {
    fileServer.serve(req, res);
    fs.readFile("./index.html", () => {});
-}).listen(1799, "0.0.0.0");
+}).listen(1700, "0.0.0.0");
 
 var io = socketIO.listen(app);
 var allClients = [];
@@ -141,12 +141,12 @@ io.sockets.on('connection', function (socket) {
 
   socket.on("onMouseClick", (button, double) => {
     console.log("click", button);
-    // robot.mouseClick("left");
+    robot.mouseClick("left");
   });
 
   // for remote connection
   socket.on("onMouseMove", (coor) => {
-    // robot.setMouseDelay(10);
+    robot.setMouseDelay(10);
     
     // robot.dragMouse(coor.x, coor.y);
     // const xvalues = 400 / coor.x 
@@ -165,9 +165,9 @@ io.sockets.on('connection', function (socket) {
 
     console.log(data.length);
     if(data.length > 1){
-      // robot.keyTap(data.toLowerCase());
+      robot.keyTap(data.toLowerCase());
     }else{
-      // robot.typeString(data);
+      robot.typeString(data);
     }
     // if(data === 'Enter'){
     //   robot.keyTap("enter");
