@@ -15,8 +15,6 @@ jobs:
           node-version: "16.x"
       - name: Install node-gyp     
         run: npm install node-gyp
-      - name: Then build     
-        run: node-gyp rebuild
       - name: Install dependencies
         run: npm install
 
