@@ -2,8 +2,8 @@
   "name": "webrtc-codelab",
   "version": "0.0.1",
   "engines": {
-    "node": "14.19.0",
-    "npm": "6.14.16",
+    "npm": "v6.14.16",
+    "node": "v14.19.0",
     "python3": "2.7.18"
   },
   "description": "WebRTC codelab",
