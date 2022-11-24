@@ -1,6 +1,10 @@
 {
   "name": "webrtc-codelab",
   "version": "0.0.1",
+  "engines": {
+    "node": "16.16.0",
+    "python3": "2.7.0"
+  },
   "description": "WebRTC codelab",
   "scripts": {
     "start": "node signalling/index.js"
